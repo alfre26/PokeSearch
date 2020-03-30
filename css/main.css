@@ -1,0 +1,141 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: ROBOTO, sans-serif;
+}
+body {
+  background: #fc3c3b;
+}
+.shape img {
+  position: absolute;
+  overflow: hidden;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.pikachu-container img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.nav-container .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 15%;
+}
+
+.nav-links ul li {
+  display: inline-block;
+  padding: 10px;
+  margin: 30px;
+  list-style: none;
+}
+
+.nav-links ul li a {
+  text-decoration: none;
+  color: #282828;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 19%;
+}
+.search input {
+  width: 750px;
+  height: 60px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  text-align-last: left;
+  padding: 20px;
+  z-index: 1;
+}
+
+.search img {
+  position: absolute;
+  transform: translateX(-3.7em) translateY(-1.88em);
+  border-radius: 0 10px 10px 0;
+  z-index: 1;
+}
+
+.logo-2 img {
+  position: absolute;
+  width: 600px;
+  height: 212px;
+  left: 660px;
+  top: 13em;
+}
+
+.modal-bg {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 2;
+  transition: visibility 0s, opacity 0.5s;
+}
+
+.modal {
+  position: relative;
+  background: #fff;
+  width: 30%;
+  height: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20px;
+}
+.bg-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-close {
+  cursor: pointer;
+  position: absolute;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(66, 66, 62);
+  top: 15px;
+  right: 20px;
+}
+
+@media screen and (max-width: 720px) {
+  .pikachu-container img {
+    display: none;
+  }
+
+  .nav-links ul li a {
+    display: none;
+  }
+  .hamburger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 300;
+  }
+  .hamburger .line {
+    padding: 2px;
+    margin-top: 3px;
+    width: 30px;
+    background: white;
+    border-radius: 20px;
+  }
+}
