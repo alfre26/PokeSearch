@@ -20,28 +20,26 @@ function modalClose() {
 async function consultarPokemon(name) {
   let template;
   await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-    .then( async Response => {
-      if (!Response.ok) {
+    .then(async Response => {
+      if(!Response.ok){
         template = `
-              <h1>No found.</h1>
-              <span class="modal-close" onclick="modalClose()">&times;</span>
+        <h1>No found.</h1>
+        <span class="modal-close" onclick="modalClose()">&times;</span>
         `;
         document.querySelector(".modal").innerHTML = template;
-
-        // make the promise be rejected if we didn't get a 200 response
-        throw new Error("Not 200 response");
-      } else {
-        await Response.json()
-         .then(pokemon => {
-          template = `
-            <img src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png" height="200px" width="200px" alt="pokemon">
-            <h2>${pokemon.name}</h2>
-            <span class="modal-close" onclick="modalClose()">&times;</span>
-        `;
-          console.log(pokemon.id);
-          document.querySelector(".modal").innerHTML = template;
-        });
+        throw new Error('No Found');
+      }else{
+        return await Response.json();
       }
+    })
+    .then(pokemon => {
+      template = `
+      <img src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png" height="200px" width="200px" alt="pokemon">
+      <h2>${pokemon.name}</h2>
+      <span class="modal-close" onclick="modalClose()">&times;</span>
+  `;
+    console.log(pokemon.id);
+    document.querySelector(".modal").innerHTML = template;
     })
     .catch(err => {
       console.log(err);
